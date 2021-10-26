@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import moment from "moment-timezone";
 import { faCashRegister, faChartLine } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { Col, Row, Button, ButtonGroup } from "@themesberg/react-bootstrap";
@@ -55,6 +56,7 @@ export default () => {
         transactions.map((item) => {
           return {
             ...item,
+            date: new Date(item.date),
             bitcoinQuantity: calculateBitcoin(item.valueInvested, bitcoinBuy),
           };
         })
@@ -67,7 +69,14 @@ export default () => {
       const response = await ApiService.get("/transactions");
 
       if (response.data) {
-        setTransactions(response.data);
+        setTransactions(
+          response.data.map((item) => {
+            return {
+              ...item,
+              date: new Date(item.date),
+            };
+          })
+        );
         handlePrice();
       }
     } catch (error) {
@@ -75,6 +84,8 @@ export default () => {
       toast.error("Não foi possível recuperar a lista de transações");
     }
   };
+
+  console.log(transactions);
 
   const handlePrice = async () => {
     try {
@@ -94,12 +105,7 @@ export default () => {
   };
 
   const dataChart = {
-    labels: transactions.map(
-      (item) =>
-        `${new Date(item.created_at).getFullYear()}-${
-          new Date(item.created_at).getMonth() + 1
-        }-${new Date(item.created_at).getDate()}`
-    ),
+    labels: transactions.map((item) => item.date),
     datasets: [
       {
         label: "# Lucro",
@@ -119,6 +125,19 @@ export default () => {
       },
     ],
   };
+
+  const summary = transactions.reduce(
+    (acomulator, transaction) => {
+      acomulator.valueInvested += transaction.valueInvested;
+      acomulator.bitcoinQuantity += transaction.bitcoinQuantity;
+
+      return acomulator;
+    },
+    {
+      bitcoinQuantity: 0,
+      valueInvested: 0,
+    }
+  );
 
   return (
     <>
@@ -143,9 +162,9 @@ export default () => {
         </Col>
         <Col xs={12} sm={6} xl={4} className="mb-4">
           <CounterWidget
-            category="Customers"
-            title="345k"
-            period="Feb 1 - Apr 1"
+            category="Valor total investido"
+            title={`R$ ${summary?.valueInvested.toFixed(2)}`}
+            period=""
             percentage={18.2}
             icon={faChartLine}
             iconColor="shape-secondary"
@@ -154,17 +173,13 @@ export default () => {
 
         <Col xs={12} sm={6} xl={4} className="mb-4">
           <CounterWidget
-            category="Revenue"
-            title="$43,594"
-            period="Feb 1 - Apr 1"
+            category="Total de Bitcoins"
+            title={`${summary?.bitcoinQuantity.toFixed(6)}`}
+            period=""
             percentage={28.4}
             icon={faCashRegister}
             iconColor="shape-tertiary"
           />
-        </Col>
-
-        <Col xs={12} sm={6} xl={4} className="mb-4">
-          <CircleChartWidget title="Traffic Share" data={trafficShares} />
         </Col>
       </Row>
     </>

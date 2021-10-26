@@ -138,15 +138,20 @@ export default () => {
                       response.data.valueInvested,
                       false
                     );
+                    const fDate = response.data.date.split("/");
                     setFieldValue(
                       "date",
-                      moment(response.data.date).format("YYYY-MM-DD"),
+                      moment(new Date(fDate[2], fDate[1] - 1, fDate[0])).format(
+                        "YYYY-MM-DD"
+                      ),
                       false
                     );
                     setFieldValue("btcbToBrl", response.data.btcbToBrl, false);
                   })();
                 }
               }, [id]);
+
+              console.log(values);
 
               return (
                 <FormFormik>

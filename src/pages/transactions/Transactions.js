@@ -37,7 +37,7 @@ export default () => {
   const handleDelete = async (item) => {
     try {
       if (window.confirm(`Deseja realmente deletar a transação`)) {
-        await ApiService.delete(`/transactions/destroy/${item._id}`);
+        await ApiService.delete(`/transactions/${item._id}`);
         toast.success("Transação deletada com sucesso");
         getAll();
       }

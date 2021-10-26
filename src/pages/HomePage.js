@@ -5,6 +5,7 @@ import { Routes } from "../routes";
 // pages
 import DashboardOverview from "./dashboard/DashboardOverview";
 import Transactions from "./Transactions";
+import TransactionForm from "./transactions/TransactionsForm";
 import Settings from "./Settings";
 import Signin from "./auth/Signin";
 import Signup from "./auth/Signup";
@@ -84,6 +85,7 @@ export default () => (
     {/* pages */}
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
     <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
+    <RouteWithSidebar exact path={Routes.TransactionForm.path} component={TransactionForm} />
     <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
 
     <Redirect to={Routes.Signin.path} />

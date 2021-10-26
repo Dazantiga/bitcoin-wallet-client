@@ -1,18 +1,21 @@
 
 import React from "react";
 import { faCashRegister, faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
 import { Col, Row, Button, ButtonGroup } from '@themesberg/react-bootstrap';
 
-import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, ProgressTrackWidget, RankingWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../components/Widgets";
-import { PageVisitsTable } from "../../components/Tables";
-import { trafficShares, totalOrders } from "../../data/charts";
+import { CounterWidget, CircleChartWidget, SalesValueWidget, SalesValueWidgetPhone } from "../../components/Widgets";
+import { trafficShares } from "../../data/charts";
+
 
 export default () => {
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <ButtonGroup>
-          <Button variant="primary" size="sm">New Transaction</Button>
+          <Button variant="secondary" className="m-1">
+            <Link to="../transactions/transactionForm">Nova Transação</Link>
+          </Button>
         </ButtonGroup>
       </div>
 
@@ -60,47 +63,7 @@ export default () => {
         </Col>
       </Row>
 
-      <Row>
-        <Col xs={12} xl={12} className="mb-4">
-          <Row>
-            <Col xs={12} xl={8} className="mb-4">
-              <Row>
-                <Col xs={12} className="mb-4">
-                  <PageVisitsTable />
-                </Col>
-
-                <Col xs={12} lg={6} className="mb-4">
-                  <TeamMembersWidget />
-                </Col>
-
-                <Col xs={12} lg={6} className="mb-4">
-                  <ProgressTrackWidget />
-                </Col>
-              </Row>
-            </Col>
-
-            <Col xs={12} xl={4}>
-              <Row>
-                <Col xs={12} className="mb-4">
-                  <BarChartWidget
-                    title="Total orders"
-                    value={452}
-                    percentage={18.2}
-                    data={totalOrders} />
-                </Col>
-
-                <Col xs={12} className="px-0 mb-4">
-                  <RankingWidget />
-                </Col>
-
-                <Col xs={12} className="px-0">
-                  <AcquisitionWidget />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      
     </>
   );
 };

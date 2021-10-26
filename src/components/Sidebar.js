@@ -4,8 +4,8 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartPie, faCog, faFileAlt, faHandHoldingUsd, faSignOutAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Nav, Badge, Image, Button, Accordion, Navbar } from '@themesberg/react-bootstrap';
+import { faChartPie, faHandHoldingUsd, faSignOutAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Nav, Badge, Image, Button, Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { Routes } from "../routes";
@@ -20,7 +20,7 @@ export default (props = {}) => {
 
   const onCollapse = () => setShow(!show);
 
-  const CollapsableNavItem = (props) => {
+  /* const CollapsableNavItem = (props) => {
     const { eventKey, title, icon, children = null } = props;
     const defaultKey = pathname.indexOf(eventKey) !== -1 ? eventKey : "";
 
@@ -41,7 +41,7 @@ export default (props = {}) => {
         </Accordion.Item>
       </Accordion>
     );
-  };
+  }; */
 
   const NavItem = (props) => {
     const { title, link, external, target, icon, image, badgeText, badgeBg = "secondary", badgeColor = "primary" } = props;
@@ -97,13 +97,11 @@ export default (props = {}) => {
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
 
-              <NavItem title="Transactions" icon={faHandHoldingUsd} link={Routes.Transactions.path} />
-              <NavItem title="Transaction Form" icon={faHandHoldingUsd} link={Routes.TransactionForm.path} />
-              <NavItem title="Transaction Edit Form" icon={faHandHoldingUsd} link={Routes.TransactionEditForm.path} />
               <NavItem title="Dashboard" link={Routes.DashboardOverview.path} icon={faChartPie} />
-              <NavItem title="My Account" icon={faCog} link={Routes.Settings.path} />
+              <NavItem title="Transações" icon={faHandHoldingUsd} link={Routes.Transactions.path} />
+{/*              <NavItem title="My Account" icon={faCog} link={Routes.Settings.path} />
 
-              <CollapsableNavItem eventKey="pages/" title="Pages" icon={faFileAlt}>
+               <CollapsableNavItem eventKey="pages/" title="Pages" icon={faFileAlt}>
                 <NavItem title="Sign In" link={Routes.Signin.path} />
                 <NavItem title="Sign Up" link={Routes.Signup.path} />
                 <NavItem title="Forgot password" link={Routes.ForgotPassword.path} />
@@ -111,7 +109,7 @@ export default (props = {}) => {
                 <NavItem title="Lock" link={Routes.Lock.path} />
                 <NavItem title="404 Not Found" link={Routes.NotFound.path} />
                 <NavItem title="500 Server Error" link={Routes.ServerError.path} />
-              </CollapsableNavItem>
+              </CollapsableNavItem> */}
 
             </Nav>
           </div>

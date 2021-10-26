@@ -5,6 +5,7 @@ import Datetime from "react-datetime";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Card, Form, Button, InputGroup } from '@themesberg/react-bootstrap';
+import { Link } from "react-router-dom";
 
 
 export default () => {
@@ -64,7 +65,9 @@ export default () => {
           </Row>
 
           <div className="mt-3">
-            <Button variant="primary" type="submit">Salvar</Button>
+              <Button variant="primary" type="submit">
+                <Link to="../transactions/transactions" className="text-white">Salvar</Link>
+              </Button>
           </div>
         </Form>
       </Card.Body>

@@ -4,7 +4,8 @@ import moment from "moment-timezone";
 import Datetime from "react-datetime";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHome } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Card, Form, Button, Breadcrumb, InputGroup } from '@themesberg/react-bootstrap';
+import { Col, Row, Card, Form, Button, ButtonGroup, Breadcrumb, InputGroup } from '@themesberg/react-bootstrap';
+import { Link } from "react-router-dom";
 
 
 export default () => {
@@ -76,7 +77,11 @@ export default () => {
           </Row>
 
           <div className="mt-3">
-            <Button variant="primary" type="submit">Salvar</Button>
+            <ButtonGroup>
+              <Button variant="primary" type="submit">
+                <Link to="../transactions/transactions" className="text-white">Salvar</Link>
+              </Button>
+            </ButtonGroup>
           </div>
         </Form>
       </Card.Body>

@@ -3,14 +3,24 @@ import React, { useState } from "react";
 import moment from "moment-timezone";
 import Datetime from "react-datetime";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Card, Form, Button, InputGroup } from '@themesberg/react-bootstrap';
+import { faCalendarAlt, faHome } from '@fortawesome/free-solid-svg-icons';
+import { Col, Row, Card, Form, Button, Breadcrumb, InputGroup } from '@themesberg/react-bootstrap';
 
 
 export default () => {
   const [tradeDate, setTradeDate] = useState("");
 
   return (
+    <>
+    <div className="d-block mb-4 mb-md-0">
+          <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
+            <Breadcrumb.Item><FontAwesomeIcon icon={faHome} /></Breadcrumb.Item>
+            <Breadcrumb.Item>Volt</Breadcrumb.Item>
+            <Breadcrumb.Item active>Transactions</Breadcrumb.Item>
+          </Breadcrumb>
+          <h4>Transactions</h4>
+          <p className="mb-0">Your web analytics dashboard template.</p>
+        </div>
     <Card border="light" className="bg-white shadow-sm mb-4">
       <Card.Body>
         <h5 className="mb-4">Cadastro de Transação</h5>
@@ -71,5 +81,6 @@ export default () => {
         </Form>
       </Card.Body>
     </Card>
+    </>
   );
 };

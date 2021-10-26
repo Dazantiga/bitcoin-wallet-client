@@ -191,7 +191,7 @@ export const TransactionsTable = () => {
   const totalTransactions = transactions.length;
 
   const TableRow = (props) => {
-    const { subscription, price, issueDate, dueDate, status } = props;
+    const { tradeDate, amount, qtyBitcoin, priceBitcoin, status } = props;
     const statusVariant = status === "Paid" ? "success"
       : status === "Due" ? "warning"
         : status === "Canceled" ? "danger" : "primary";
@@ -204,22 +204,22 @@ export const TransactionsTable = () => {
         </td>
         <td>
           <span className="fw-normal">
-            {subscription}
+            {tradeDate}
           </span>
         </td>
         <td>
           <span className="fw-normal">
-            {issueDate}
+            {amount}
           </span>
         </td>
         <td>
           <span className="fw-normal">
-            {dueDate}
+            {qtyBitcoin}
           </span>
         </td>
         <td>
           <span className="fw-normal">
-            ${parseFloat(price).toFixed(2)}
+            ${parseFloat(priceBitcoin).toFixed(2)}
           </span>
         </td>
         <td>
@@ -236,13 +236,10 @@ export const TransactionsTable = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item>
-                <FontAwesomeIcon icon={faEye} className="me-2" /> View Details
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit
+                <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar
               </Dropdown.Item>
               <Dropdown.Item className="text-danger">
-                <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remove
+                <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remover
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -258,23 +255,23 @@ export const TransactionsTable = () => {
           <thead>
             <tr>
               <th className="border-bottom">#</th>
-              <th className="border-bottom">Bill For</th>
-              <th className="border-bottom">Issue Date</th>
-              <th className="border-bottom">Due Date</th>
-              <th className="border-bottom">Total</th>
+              <th className="border-bottom">Data</th>
+              <th className="border-bottom">Valor</th>
+              <th className="border-bottom">Quantidade Bitcoin</th>
+              <th className="border-bottom">Valor Bitcoin</th>
               <th className="border-bottom">Status</th>
-              <th className="border-bottom">Action</th>
+              <th className="border-bottom">Ações</th>
             </tr>
           </thead>
           <tbody>
             {transactions.map(t => <TableRow key={`transaction-${t.invoiceNumber}`} {...t} />)}
           </tbody>
         </Table>
-        <Card.Footer className="px-3 border-0 d-lg-flex align-items-center justify-content-between">
+        <Card.Footer className="px-0 border-0 d-lg-flex align-items-center justify-content-between">
           <Nav>
-            <Pagination className="mb-2 mb-lg-0">
+            <Pagination className="mb-1 mb-lg-0">
               <Pagination.Prev>
-                Previous
+                Anterior
               </Pagination.Prev>
               <Pagination.Item active>1</Pagination.Item>
               <Pagination.Item>2</Pagination.Item>
@@ -282,12 +279,12 @@ export const TransactionsTable = () => {
               <Pagination.Item>4</Pagination.Item>
               <Pagination.Item>5</Pagination.Item>
               <Pagination.Next>
-                Next
+                Próximo
               </Pagination.Next>
             </Pagination>
           </Nav>
           <small className="fw-bold">
-            Showing <b>{totalTransactions}</b> out of <b>25</b> entries
+            Exibindo <b>{totalTransactions}</b> de <b>25</b> registros
           </small>
         </Card.Footer>
       </Card.Body>

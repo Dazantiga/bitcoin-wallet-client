@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCog, faHome } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, ButtonGroup, Breadcrumb, Dropdown } from '@themesberg/react-bootstrap';
 
-import { TransactionsTable } from "../components/Tables";
+import { TransactionsTable } from "../../components/Tables";
 
 export default () => {
   return (

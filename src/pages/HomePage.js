@@ -4,7 +4,7 @@ import { Routes } from "../routes";
 
 // pages
 import DashboardOverview from "./dashboard/DashboardOverview";
-import Transactions from "./Transactions";
+import Transactions from "./transactions/Transactions";
 import TransactionForm from "./transactions/TransactionsForm";
 import TransactionEditForm from "./transactions/TransactionsEditForm";
 import Settings from "./Settings";

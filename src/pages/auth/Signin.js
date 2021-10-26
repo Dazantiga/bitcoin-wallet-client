@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 import { Routes } from "../../routes";
 import BgImage from "../../assets/img/illustrations/signin.svg";
 
+const login = () => {
+    
+}
 
 export default () => {
   return (
@@ -53,7 +56,7 @@ export default () => {
                       <Card.Link className="small text-end">Lost password?</Card.Link>
                     </div>
                   </Form.Group>
-                  <Button variant="primary" type="submit" className="w-100">
+                  <Button variant="primary" type="submit" className="w-100" onClick={login}>
                     Sign in
                   </Button>
                 </Form>

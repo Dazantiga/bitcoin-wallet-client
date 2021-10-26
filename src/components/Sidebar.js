@@ -98,7 +98,8 @@ export default (props = {}) => {
             <Nav className="flex-column pt-3 pt-md-0">
 
               <NavItem title="Transactions" icon={faHandHoldingUsd} link={Routes.Transactions.path} />
-              <NavItem title="Transactions Form" icon={faHandHoldingUsd} link={Routes.TransactionForm.path} />
+              <NavItem title="Transaction Form" icon={faHandHoldingUsd} link={Routes.TransactionForm.path} />
+              <NavItem title="Transaction Edit Form" icon={faHandHoldingUsd} link={Routes.TransactionEditForm.path} />
               <NavItem title="Dashboard" link={Routes.DashboardOverview.path} icon={faChartPie} />
               <NavItem title="My Account" icon={faCog} link={Routes.Settings.path} />
 

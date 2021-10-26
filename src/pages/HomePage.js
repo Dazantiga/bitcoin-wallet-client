@@ -6,6 +6,7 @@ import { Routes } from "../routes";
 import DashboardOverview from "./dashboard/DashboardOverview";
 import Transactions from "./Transactions";
 import TransactionForm from "./transactions/TransactionsForm";
+import TransactionEditForm from "./transactions/TransactionsEditForm";
 import Settings from "./Settings";
 import Signin from "./auth/Signin";
 import Signup from "./auth/Signup";
@@ -86,6 +87,7 @@ export default () => (
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
     <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
     <RouteWithSidebar exact path={Routes.TransactionForm.path} component={TransactionForm} />
+    <RouteWithSidebar exact path={Routes.TransactionEditForm.path} component={TransactionEditForm} />
     <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
 
     <Redirect to={Routes.Signin.path} />

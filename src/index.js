@@ -12,10 +12,15 @@
 // =========================================================
 
 // * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
-
-import React from 'react';
-import ReactDOM from 'react-dom';
+import "react-toastify/dist/ReactToastify.css";
+import React from "react";
+import ReactDOM from "react-dom";
 import { HashRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { ToastContainer } from "react-toastify";
+
+import { store, persistor } from "./store";
 
 // core styles
 import "./scss/volt.scss";
@@ -28,9 +33,14 @@ import HomePage from "./pages/HomePage";
 import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.render(
-  <HashRouter>
-    <ScrollToTop />
-    <HomePage />
-  </HashRouter>,
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <HashRouter>
+        <ScrollToTop />
+        <HomePage />
+        <ToastContainer autoClose={3000} />
+      </HashRouter>
+    </PersistGate>
+  </Provider>,
   document.getElementById("root")
 );

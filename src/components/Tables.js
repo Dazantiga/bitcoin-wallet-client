@@ -1,67 +1,84 @@
-
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown, faArrowUp, faEdit, faEllipsisH, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { Nav, Card, Button, Table, Dropdown, Pagination, ButtonGroup } from '@themesberg/react-bootstrap';
-import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowDown,
+  faArrowUp,
+  faEdit,
+  faEllipsisH,
+  faTrashAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  Nav,
+  Card,
+  Button,
+  Table,
+  Dropdown,
+  Pagination,
+  ButtonGroup,
+} from "@themesberg/react-bootstrap";
+import { Link } from "react-router-dom";
 
 import { Routes } from "../routes";
-import transactions from "../data/transactions";
 
-export const TransactionsTable = () => {
+export const TransactionsTable = ({ transactions, onDelete }) => {
   const totalTransactions = transactions.length;
 
   const TableRow = (props) => {
-    const { tradeDate, amount, qtyBitcoin, priceBitcoin, status } = props;
-    const statusVariant = status === true ? faArrowUp
-      : faArrowDown 
+    const { _id, date, valueInvested, bitcoinQuantity, btcbToBrl } = props;
+    const statusVariant = faArrowUp;
 
     return (
       <tr>
         <td>
-          <Card.Link as={Link} to={Routes.Transactions.path} className="fw-normal">
+          <Card.Link
+            as={Link}
+            to={Routes.Transactions.path}
+            className="fw-normal"
+          >
+            {_id}
           </Card.Link>
         </td>
         <td>
-          <span className="fw-normal">
-            {tradeDate}
-          </span>
+          <span className="fw-normal">{date}</span>
+        </td>
+        <td>
+          <span className="fw-normal">{valueInvested}</span>
+        </td>
+        <td>
+          <span className="fw-normal">{bitcoinQuantity}</span>
         </td>
         <td>
           <span className="fw-normal">
-            {amount}
+            R$ {parseFloat(btcbToBrl).toFixed(2)}
           </span>
         </td>
         <td>
-          <span className="fw-normal">
-            {qtyBitcoin}
-          </span>
-        </td>
-        <td>
-          <span className="fw-normal">
-            ${parseFloat(priceBitcoin).toFixed(2)}
-          </span>
-        </td>
-        <td>
-          <span className={`fw-normal text-${statusVariant}`}>
-            {status}
-          </span>
+          <FontAwesomeIcon icon={statusVariant} color={"green"} />
         </td>
         <td>
           <Dropdown as={ButtonGroup}>
-            <Dropdown.Toggle as={Button} split variant="link" className="text-dark m-0 p-0">
+            <Dropdown.Toggle
+              as={Button}
+              split
+              variant="link"
+              className="text-dark m-0 p-0"
+            >
               <span className="icon icon-sm">
                 <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
               </span>
             </Dropdown.Toggle>
             <Dropdown.Menu>
-                <Dropdown.Item>
-                  <Link to="../transactions/transactionEditForm">
-                    <FontAwesomeIcon icon={faEdit} className="me-2" />Editar
-                  </Link>
-                </Dropdown.Item>
+              <Dropdown.Item>
+                <Link to={`/transactions/transactionForm/${_id}`}>
+                  <FontAwesomeIcon icon={faEdit} className="me-2" />
+                  Editar
+                </Link>
+              </Dropdown.Item>
               <Dropdown.Item className="text-danger">
-                <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remover
+                <Link to="#" onClick={() => onDelete(props)}>
+                  <FontAwesomeIcon icon={faTrashAlt} className="me-2" />
+                  Remover
+                </Link>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -86,27 +103,26 @@ export const TransactionsTable = () => {
             </tr>
           </thead>
           <tbody>
-            {transactions.map(t => <TableRow key={`transaction-${t.invoiceNumber}`} {...t} />)}
+            {transactions.map((t) => (
+              <TableRow key={`transaction-${t._id}`} {...t} />
+            ))}
           </tbody>
         </Table>
         <Card.Footer className="px-0 border-0 d-lg-flex align-items-center justify-content-between">
           <Nav>
             <Pagination className="mb-1 mb-lg-0">
-              <Pagination.Prev>
-                Anterior
-              </Pagination.Prev>
+              <Pagination.Prev>Anterior</Pagination.Prev>
               <Pagination.Item active>1</Pagination.Item>
               <Pagination.Item>2</Pagination.Item>
               <Pagination.Item>3</Pagination.Item>
               <Pagination.Item>4</Pagination.Item>
               <Pagination.Item>5</Pagination.Item>
-              <Pagination.Next>
-                Próximo
-              </Pagination.Next>
+              <Pagination.Next>Próximo</Pagination.Next>
             </Pagination>
           </Nav>
           <small className="fw-bold">
-            Exibindo <b>{totalTransactions}</b> de <b>25</b> registros
+            Exibindo <b>{totalTransactions}</b> de <b>{totalTransactions}</b>{" "}
+            registros
           </small>
         </Card.Footer>
       </Card.Body>

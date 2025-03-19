@@ -33,7 +33,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@themesberg/react-bootstrap": "^1.4.1",
-    "axios": "^0.24.0",
+    "axios": "^1.8.2",
     "bootstrap": "5.0.0-beta1",
     "chart.js": "^3.6.0",
     "chartist": "^0.11.4",

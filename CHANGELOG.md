@@ -38,5 +38,5 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 - Adição do @popperjs/core necessário para o Bootstrap
 - Adição do @testing-library/dom necessário para testes
 
-## [1.0.0] - 2024-03-19
+## [0.0.5] - 2024-03-19
 - Versão inicial do projeto 

@@ -5,6 +5,18 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [0.0.7] - 2024-03-20
+
+### Segurança
+- Atualização do Vite e suas dependências para resolver vulnerabilidades
+- Atualização do @babel/runtime para versão mais recente
+- Remoção de todas as vulnerabilidades conhecidas do projeto
+
+### Alterado
+- Atualização do Vite para a versão mais recente
+- Atualização do Vitest para a versão mais recente
+- Atualização do plugin React do Vite para a versão mais recente
+
 ## [0.0.6] - 2024-03-19
 
 ### Segurança

@@ -1,4 +1,4 @@
-﻿# Bitcoin Wallet Client v0.0.6
+﻿# Bitcoin Wallet Client v0.0.7
 
 Interface web para gerenciamento de carteiras Bitcoin.
 

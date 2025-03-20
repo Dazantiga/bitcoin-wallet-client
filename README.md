@@ -1,21 +1,72 @@
-﻿# bitcoin-wallet-client
+﻿# Bitcoin Wallet Client v0.0.6
 
-# Clone the repository FRONTEND
+Interface web para gerenciamento de carteiras Bitcoin.
 
-    git clone git@github.com:Dazantiga/bitcoin-wallet-client.git
+## Requisitos
 
-# Switch to the repo folder
+- Node.js 18+
+- npm ou yarn
 
-    cd bitcoin-wallet-client
+## Instalação
 
-# Install all the dependencies using npm or yarn
+### Clone o repositório
 
-    npm install
-    yarn install
+```bash
+git clone git@github.com:Dazantiga/bitcoin-wallet-client.git
+```
 
-# Start the local development server
+### Entre na pasta do projeto
 
-    npm start
-    yarn start
+```bash
+cd bitcoin-wallet-client
+```
 
-You can now access the server api at http://localhost:3000
+### Instale as dependências
+
+```bash
+npm install
+# ou
+yarn install
+```
+
+## Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento:
+
+```bash
+npm run dev
+# ou
+yarn dev
+```
+
+O aplicativo estará disponível em http://localhost:3000
+
+## Build
+
+Para gerar a versão de produção:
+
+```bash
+npm run build
+# ou
+yarn build
+```
+
+## Preview
+
+Para visualizar a versão de produção localmente:
+
+```bash
+npm run preview
+# ou
+yarn preview
+```
+
+## Testes
+
+Para executar os testes:
+
+```bash
+npm test
+# ou
+yarn test
+```

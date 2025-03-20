@@ -5,38 +5,29 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
-## [Não publicado]
+## [0.0.6] - 2024-03-19
 
 ### Segurança
-- Atualização do `axios` para versão 1.6.7 para corrigir vulnerabilidades
-- Atualização de todas as dependências do FontAwesome para versão 6.5.1
-- Atualização do `bootstrap` para versão 5.3.3
-- Atualização de bibliotecas de teste (@testing-library) para versões mais recentes
+- Migração do `react-scripts` para o Vite para resolver vulnerabilidades de dependências
+- Atualização de todas as dependências para as versões mais recentes e seguras
 
 ### Alterado
-- Migração do Chartist para Recharts (biblioteca de gráficos moderna)
-- Atualização do React e dependências relacionadas para versão 18
-- Atualização do React Router para versão 6
-- Substituição do `node-sass` por `sass` moderno
+- Configuração do projeto para usar Vite como bundler
+- Atualização do sistema de build para melhor performance
+- Modernização da estrutura do projeto
 
 ### Removido
-- Remoção do `chartist` e `chartist-plugin-tooltips-updated`
-- Remoção do `react-chartist`
-- Remoção dos arquivos de estilo do Chartist
+- Dependência do `react-scripts` e suas configurações
+- Arquivos de configuração legados
 
 ### Adicionado
-- Adição do Recharts versão 2.12.1 para visualização de dados
-- Adição de plugins modernos do Babel como devDependencies
-- Implementação de novos componentes de gráfico usando Recharts:
-  - SalesValueChart
-  - SalesValueChartphone
-  - CircleChart
-  - BarChart
+- Arquivo de configuração `vite.config.js`
+- Variáveis de ambiente para Vite no arquivo `.env`
+- Suporte a TypeScript nativo através do Vite
 
 ### Correções
-- Correção de dependências ausentes (peer dependencies)
-- Adição do @popperjs/core necessário para o Bootstrap
-- Adição do @testing-library/dom necessário para testes
+- Resolução de vulnerabilidades em dependências transitivas
+- Otimização do processo de build
 
 ## [0.0.5] - 2024-03-19
 - Versão inicial do projeto 

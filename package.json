@@ -54,7 +54,7 @@
     "react-redux": "^9.1.0",
     "react-router-dom": "^7.5.0",
     "react-router-hash-link": "^2.4.3",
-    "react-toastify": "^10.0.4",
+    "react-toastify": "^11.0.5",
     "react-transition-group": "^4.4.5",
     "recharts": "^2.12.1",
     "redux": "^5.0.1",

@@ -72,7 +72,7 @@
     "@types/react": "^18.2.61",
     "@vitejs/plugin-react": "^4.3.4",
     "sass": "^1.71.1",
-    "vite": "^6.2.5",
+    "vite": "^6.3.0",
     "vitest": "^3.0.9"
   }
 }

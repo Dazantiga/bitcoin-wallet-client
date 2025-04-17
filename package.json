@@ -71,8 +71,8 @@
     "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.2.61",
     "@vitejs/plugin-react": "^4.3.4",
-    "sass": "^1.86.3",
-    "vite": "^6.2.5",
-    "vitest": "^3.1.1"
+    "sass": "^1.71.1",
+    "vite": "^6.2.6",
+    "vitest": "^3.0.9"
   }
 }

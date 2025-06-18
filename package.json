@@ -39,7 +39,7 @@
     "@popperjs/core": "^2.11.8",
     "@testing-library/dom": "^10.4.0",
     "axios": "^1.9.0",
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^5.3.7",
     "chart.js": "^4.4.9",
     "formik": "^2.4.5",
     "moment": "^2.30.1",
